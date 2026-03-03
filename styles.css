@@ -1,0 +1,226 @@
+:root{
+  --bg: #070b14;
+  --panel: rgba(12, 18, 36, 0.85);
+  --panel2: rgba(8, 12, 26, 0.75);
+  --text: #e8f0ff;
+  --muted: #a8b3cc;
+  --blue: #4aa3ff;
+  --blue2: #1b6cff;
+  --border: rgba(90, 140, 255, 0.18);
+  --shadow: rgba(0, 0, 0, 0.45);
+  --radius: 18px;
+}
+
+*{ box-sizing: border-box; }
+html, body{ height: 100%; }
+
+body{
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  color: var(--text);
+  background:
+    radial-gradient(1200px 700px at 15% 10%, rgba(27,108,255,0.25), transparent 55%),
+    radial-gradient(900px 600px at 85% 20%, rgba(74,163,255,0.18), transparent 60%),
+    linear-gradient(180deg, #060914, #050710 55%, #04050c);
+  overflow-x: hidden;
+}
+
+/* Grid sutil */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to right, rgba(74,163,255,0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(74,163,255,0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(circle at 50% 0%, black 30%, transparent 70%);
+  opacity: 0.9;
+  z-index: 0;
+}
+
+/* Glow de fondo (asegurado detrás del contenido) */
+body::after{
+  content:"";
+  position: fixed;
+  inset: -120px;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(74,163,255,0.10), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(27,108,255,0.10), transparent 45%);
+  filter: blur(22px);
+  opacity: 0.9;
+  z-index: 0;
+}
+
+.container{
+  position: relative;
+  width: min(980px, 92vw);
+  margin: 28px auto 60px;
+  z-index: 1; /* contenido arriba del decorado */
+}
+
+.header{
+  background: linear-gradient(135deg, rgba(12,18,36,0.92), rgba(8,12,26,0.78));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 14px 40px var(--shadow);
+  padding: 18px 18px 14px;
+  overflow: hidden; /* evita “bugs” de brillos fuera */
+  position: relative;
+}
+
+.header-content{
+  position: relative;
+  z-index: 2; /* texto SIEMPRE arriba del circuito */
+}
+
+.header .circuit{
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    radial-gradient(circle at 12% 30%, rgba(74,163,255,0.9) 0 2px, transparent 3px),
+    radial-gradient(circle at 55% 18%, rgba(74,163,255,0.9) 0 2px, transparent 3px),
+    radial-gradient(circle at 82% 65%, rgba(74,163,255,0.9) 0 2px, transparent 3px),
+    linear-gradient(90deg, transparent 0 15%, rgba(74,163,255,0.2) 15% 16%, transparent 16% 100%),
+    linear-gradient(180deg, transparent 0 38%, rgba(74,163,255,0.18) 38% 39%, transparent 39% 100%);
+  mask-image: linear-gradient(180deg, transparent, black 18%, black 80%, transparent);
+}
+
+.topbar{
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+h1{
+  margin: 0;
+  font-size: clamp(20px, 2.4vw, 28px);
+  letter-spacing: 0.2px;
+}
+
+.badge{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 12px;
+  color: rgba(232,240,255,0.9);
+  border: 1px solid rgba(74,163,255,0.28);
+  background: rgba(74,163,255,0.08);
+  padding: 8px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.subtitle{
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+main{
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.panel{
+  background: linear-gradient(180deg, rgba(12,18,36,0.88), rgba(8,12,26,0.76));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 36px var(--shadow);
+  padding: 14px;
+  position: relative;
+  overflow: hidden; /* evita que brillos se “corten raro” */
+}
+
+.panel-title{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.panel-title h2{
+  margin: 0;
+  font-size: 16px;
+  letter-spacing: 0.2px;
+}
+
+.posts{
+  display: grid;
+  gap: 10px;
+}
+
+.post{
+  border: 1px solid rgba(90,140,255,0.20);
+  background: linear-gradient(180deg, rgba(4,6,14,0.55), rgba(6,9,20,0.25));
+  border-radius: 14px;
+  padding: 12px 12px 10px;
+  position: relative;
+  overflow: hidden; /* clave para “bug” de brillo fuera del card */
+}
+
+.post::before{
+  content:"";
+  position:absolute;
+  inset: 0;
+  background: radial-gradient(600px 120px at 20% 0%, rgba(74,163,255,0.12), transparent 55%);
+  pointer-events:none;
+  z-index: 0;
+}
+
+.post > *{
+  position: relative;
+  z-index: 1; /* contenido arriba del brillo */
+}
+
+.post-header{
+  display:flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.post-title{
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+time{
+  color: rgba(168,179,204,0.9);
+  font-size: 12px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+.post-body{
+  margin-top: 8px;
+  color: rgba(232,240,255,0.92);
+  line-height: 1.45;
+}
+
+a{
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+a:hover{ text-decoration: underline; }
+a:focus-visible{
+  outline: 2px solid rgba(74,163,255,0.55);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+footer{
+  margin-top: 16px;
+  color: rgba(168,179,204,0.9);
+  font-size: 12px;
+  text-align: center;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
