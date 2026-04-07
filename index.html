@@ -1,47 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>Newspaper Layout</title>
+  <meta charset="UTF-8" />
+  <title>Personal Portfolio</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <main class="newspaper-layout">
-    <header class="title">
+  <header>
+    <nav id="navbar">
+      <a href="#welcome-section">
+        <p>Inicio</p>
+      </a>
+      <a href="#project-section">
+        <p>Enlaces</p>
+      </a>
+      <a href="#footer-section">
+        <p>Otros</p>
+      </a>
+    </nav>
+  </header>
+  <main>
+    <section id="welcome-section">
       <h1>9no Ciencias de la Computación</h1>
-    </header>
-    <article class="feature-article">
-      <h2>Prueba diagnóstica Robótica</h2>
-      <p>Enlace a la prueba diagnóstica: <a href="https://forms.gle/UKj4oELrjH1RgpnF8" target="_blank" rel="noopener">Click aquí</a></p>
-    </article>
-    <article class="secondary-article">
-      <h2></h2>
-      <p>
+      <span>Liceo N°1 La Paz</span>
+    </section>
+    <section id="project-section">
+      <h2>Enlaces principales</h2>
+      <div id="project-container">
+        <a href="https://forms.gle/UKj4oELrjH1RgpnF8" target="_blank" rel="noopener noreferrer">
+          <div class="project-tile">
 
-      </p>
-    </article>
-    <figure class="cover-image">
-      <img src=".\prog.webp">
-    </figure>
-    <article class="small-article1">
-      <h3></h3>
-      <p></p>
-    </article>
-    <article class="small-article2">
-      <h3>
-      </h3>
-      <p></p>
-    </article>
-    <article class="small-article3">
-      <h3>
-      </h3>
-      <p>
-      </p>
-    </article>
+            <img src=".\prog.webp" alt="">
+            <h3>Diagnóstica Robótica</h3>
+
+          </div>
+        </a>
+
+        <a href="https://lab.open-roberta.org/" target="_blank" rel="noopener noreferrer">
+          <div class="project-tile">
+            <img src=".\lego.webp" alt="">
+            <h3>Simulador OpenRoberta</h3>
+          </div>
+        </a>
+
+
+        <div class="project-tile">
+          <img src=".\noimg.png" alt="">
+          <h3></h3>
+        </div>
+        <div class="project-tile">
+          <img src=".\noimg.png" alt="">
+          <h3></h3>
+        </div>
+        <div class="project-tile">
+          <img src=".\noimg.png" alt="">
+          <h3></h3>
+        </div>
+        <div class="project-tile">
+          <img src=".\noimg.png" alt="">
+          <h3></h3>
+        </div>
+      </div>
+      <a id="profile-link" href="" target="_self" rel="noopener noreferrer">Ver más</a>
+    </section>
   </main>
-
+  <footer id="footer-section">
+    <p>**Esta página no sustituye la plataforma CREA, ni es oficial del curso de ninguna forma</p>
+    <p>© Creado por Sebastián Eizmendi</p>
+  </footer>
 </body>
 
 </html>
